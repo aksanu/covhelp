@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{%load static%}
+
+{%block title%} Oxygen {%endblock%}
+
+{%block content%}
+	<div class="container">
+		<div align="center" class="row">
+			
+			<div class='col-md-6 col-sm-6 col-l-6'>
+				<form method="POST" id="stateForm">
+				{%csrf_token%}
+				<div class="form-row" >
+					<input type="hidden" name="form_type" value="stateForm">
+			    
+			        <div class="form-group col-md-4">
+			    		<label for="inputState">Search by State</label>
+			      		<select id="inputState" name="inputState"class="form-control">
+			        		<option selected>Uttar Pradesh</option>
+			        		<option>Maharastra</option>
+			        		<option>Delhi</option>
+			        		<option>Uttarakhand</option>
+			        		<option>West Bengal</option>
+			        		<option>Rajasthan</option>
+			        		<option>Chhattisgarh</option>
+			        		<option>Keral</option>
+			        		<option>Madhya Pradesh</option>
+			        		<option>Tamil Nadu</option>
+			        		<option>Telangana</option>
+			        		<option>Assam</option>
+			        		<option>Bihar</option>
+			        		<option>Haryana</option>
+			        		<option>Karnataka</option>
+			        		<option>Jharkhand</option>
+			        		<option>Odisha</option>
+			        		<option>Punjab</option>
+			        		<option>Arunachal Pradesh</option>
+			        		<option>Andhra Pradesh</option>
+			        		<option>Himachal Pradesh</option>
+			        		<option>Goa</option>
+			        		<option>Tripura</option>
+			        		<option>Manipur</option>
+			        		<option>Meghalaya</option>
+			        		<option>Nagaland</option>
+			        		<option>Mizoram</option>
+			        		<option>Sikkim</option>
+			        		<option>Tripura</option>
+			        		<option>Andaman and Nicobar Islands</option>
+			        		<option>Daman and Diu</option>
+			        		<option>Jammu and Kashmir</option>
+			        		<option>Ladakh</option>
+			        		<option>Puducherry</option>
+			        		<option>Lakshadweep</option>
+			    		</select>
+			    		<br>
+			    		<button type="submit" class="btn btn-primary">Submit</button>
+			    	</div>
+			    	
+			    
+			  	</div>
+	  			
+				</form>
+			</div>
+
+			<div class="col-sm-6 col-md-6 col-l-6" >
+				<br>
+				<form method="POST" id="searchForm" class="form-inline" >
+					{%csrf_token%}
+					<input type="hidden" name="form_type" value="searchForm">
+		   	 		<input class="form-control mr-sm-2" type="search" name='search'placeholder="Search By City" aria-label="Search">
+		   			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		  		</form>
+			</div>
+		</div>
+		<br><br>
+		
+		{%if oxygen%}
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Detail</th>
+		      <th scope="col">Mobile</th>
+		      <th scope="col">city</th>
+		     	<th scope="col">Status</th>
+		    </tr>
+		  </thead>
+		  {%for datas in oxygen%}
+		  <tbody>
+		    <tr>
+		      <th scope="row">{{forloop.counter}}</th>
+		      <td>{{datas.person_name}}</td>
+		      <td>{{datas.person_detail}}</td>
+		      <td>{{datas.person_mobile}}</td>
+		      <td>{{datas.city}}</td>
+		      <td>{{datas.status}}</td>
+		    </tr>
+		</tbody>
+		{%endfor%}
+		</table>
+		{%else%}
+		<h1>No Data Found Or First Search By State Or City</h1>
+		{%endif%}
+	</div>
+{%endblock%}

@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{%load static%}
+
+{%block content%}
+	<div class="container">
+		<h3 align="center">
+		  List of 
+		  <small class="text-muted">Beds/Medicine/Plasma/Oxygen</small>
+		  State Wise
+		</h3>
+		
+		<br>
+		<form method="POST" align="center">
+			{%csrf_token%}
+			<div class="form-row" align="center">
+		    
+		        <div class="form-group col-md-4">
+		    		<label for="inputState">State</label>
+		      		<select id="inputState" name="inputState"class="form-control">
+
+		        		<option selected>Uttar Pradesh</option>
+			        		<option>Maharastra</option>
+			        		<option>Delhi</option>
+			        		<option>Uttarakhand</option>
+			        		<option>West Bengal</option>
+			        		<option>Rajasthan</option>
+			        		<option>Chhattisgarh</option>
+			        		<option>Keral</option>
+			        		<option>Madhya Pradesh</option>
+			        		<option>Tamil Nadu</option>
+			        		<option>Telangana</option>
+			        		<option>Assam</option>
+			        		<option>Bihar</option>
+			        		<option>Haryana</option>
+			        		<option>Karnataka</option>
+			        		<option>Jharkhand</option>
+			        		<option>Odisha</option>
+			        		<option>Punjab</option>
+			        		<option>Arunachal Pradesh</option>
+			        		<option>Andhra Pradesh</option>
+			        		<option>Himachal Pradesh</option>
+			        		<option>Goa</option>
+			        		<option>Tripura</option>
+			        		<option>Manipur</option>
+			        		<option>Meghalaya</option>
+			        		<option>Nagaland</option>
+			        		<option>Mizoram</option>
+			        		<option>Sikkim</option>
+			        		<option>Tripura</option>
+			        		<option>Andaman and Nicobar Islands</option>
+			        		<option>Daman and Diu</option>
+			        		<option>Jammu and Kashmir</option>
+			        		<option>Ladakh</option>
+			        		<option>Puducherry</option>
+			        		<option>Lakshadweep</option>
+		    		</select>
+		    	</div>
+		    	<div class="form-group col-md-4">
+		    		<label for="inputService">Service</label>
+		      		<select id="inputService" name="inputService"class="form-control">
+		        		<option selected>Beds</option>
+		        		<option>Remdesivir</option>
+		        		<option>Plasma</option>
+		        		<option>Oxygen</option>
+		        		
+		        		
+		    		</select>
+		    	</div>
+		    
+		  	</div>
+  			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+		<!-- If service is bed -->
+		
+			
+		
+		{%if beds%}
+		<h1 align="center">Beds</h1>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Detail</th>
+		      <th scope="col">Mobile</th>
+		      <th scope="col">city</th>
+		      <th scope="col">Hospital</th>
+		     <th scope="col">Status</th>
+		    </tr>
+		  </thead>
+		  {%for datas in beds%}
+		  <tbody>
+		    <tr>
+		      <th scope="row">{{forloop.counter}}</th>
+		      <td>{{datas.person_name}}</td>
+		      <td>{{datas.person_detail}}</td>
+		      <td>{{datas.person_mobile}}</td>
+		      <td>{{datas.city}}</td>
+		      <td>{{datas.hospital}}</td>
+		      <td>{{datas.status}}</td>
+		    </tr>
+		</tbody>
+		{%endfor%}
+		</table>
+		
+		
+		{%endif%}
+		<!-- If service is bed end-->
+
+		{%if oxygen%}
+		
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Detail</th>
+		      <th scope="col">Mobile</th>
+		      <th scope="col">city</th>
+		  
+		     <th scope="col">Status</th>
+		    </tr>
+		  </thead>
+		  {%for datas in oxygen%}
+		  <tbody>
+		    <tr>
+		      <th scope="row">{{forloop.counter}}</th>
+		      <td>{{datas.person_name}}</td>
+		      <td>{{datas.person_detail}}</td>
+		      <td>{{datas.person_mobile}}</td>
+		      <td>{{datas.city}}</td>
+		     
+		      <td>{{datas.status}}</td>
+		    </tr>
+		</tbody>
+		{%endfor%}
+		</table>
+		
+	
+		{%endif%}
+
+		{%if plasma%}
+		<h1 align="center">Plasma</h1>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Detail</th>
+		      <th scope="col">Mobile</th>
+		      <th scope="col">city</th>
+		      <th scope="col">Blood Group</th>
+		     <th scope="col">Status</th>
+		    </tr>
+		  </thead>
+		  {%for datas in plasma%}
+		  <tbody>
+		    <tr>
+		      <th scope="row">{{forloop.counter}}</th>
+		      <td>{{datas.person_name}}</td>
+		      <td>{{datas.person_detail}}</td>
+		      <td>{{datas.person_mobile}}</td>
+		      <td>{{datas.city}}</td>
+		      <td>{{datas.blood_group}}</td>
+		      <td>{{datas.status}}</td>
+		    </tr>
+		</tbody>
+		{%endfor%}
+		</table>
+		
+		
+		{%endif%}
+
+		{%if remdesivir%}
+		
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Detail</th>
+		      <th scope="col">Mobile</th>
+		      <th scope="col">city</th>
+		     
+		     <th scope="col">Status</th>
+		    </tr>
+		  </thead>
+		  {%for datas in remdesivir%}
+		  <tbody>
+		    <tr>
+		      <th scope="row">{{forloop.counter}}</th>
+		      <td>{{datas.person_name}}</td>
+		      <td>{{datas.person_detail}}</td>
+		      <td>{{datas.person_mobile}}</td>
+		      <td>{{datas.city}}</td>
+		    	<td>{{datas.status}}</td>
+		    </tr>
+		</tbody>
+		{%endfor%}
+		</table>
+		
+		
+		{%endif%}
+
+
+
+
+
+
+	</div>
+{%endblock%}

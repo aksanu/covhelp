@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{%load static%}
+
+{%block title%} Add New Data {%endblock%}
+
+{%block content%}
+	<div class="container">
+		<div class="container-fluid h-100 bg-light text-dark">
+			<div class="row justify-content-center align-items-center">
+		    	<h1>Add New Data</h1>    
+			</div>
+		  	<hr/>
+		  	<div class="row justify-content-center align-items-center h-100">
+		    	<div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+		      		<form method="POST">
+		      			{%csrf_token%}
+		        		<div class="form-group">
+		          			<select class="form-control" id="inputState" name="inputState" required>
+		                    	<option disabled selected hidden >Select State</option>
+		                    	<option >Uttar Pradesh</option>
+				        		<option>Maharastra</option>
+				        		<option>Delhi</option>
+				        		<option>Uttarakhand</option>
+				        		<option>West Bengal</option>
+				        		<option>Rajasthan</option>
+				        		<option>Chhattisgarh</option>
+				        		<option>Keral</option>
+				        		<option>Madhya Pradesh</option>
+				        		<option>Tamil Nadu</option>
+				        		<option>Telangana</option>
+				        		<option>Assam</option>
+				        		<option>Bihar</option>
+				        		<option>Haryana</option>
+				        		<option>Karnataka</option>
+				        		<option>Jharkhand</option>
+				        		<option>Odisha</option>
+				        		<option>Punjab</option>
+				        		<option>Arunachal Pradesh</option>
+				        		<option>Andhra Pradesh</option>
+				        		<option>Himachal Pradesh</option>
+				        		<option>Goa</option>
+				        		<option>Tripura</option>
+				        		<option>Manipur</option>
+				        		<option>Meghalaya</option>
+				        		<option>Nagaland</option>
+				        		<option>Mizoram</option>
+				        		<option>Sikkim</option>
+				        		<option>Tripura</option>
+				        		<option>Andaman and Nicobar Islands</option>
+				        		<option>Daman and Diu</option>
+				        		<option>Jammu and Kashmir</option>
+				        		<option>Ladakh</option>
+				        		<option>Puducherry</option>
+				        		<option>Lakshadweep</option>
+		                	</select>
+	        			</div>
+	        			<div class="form-group ">
+				    		
+				      		<select id="inputService" name="inputService"class="form-control">
+				        		<option disabled selected hidden>Select Service</option>
+				        		<option >Beds</option>
+				        		<option>Remdesivir</option>
+				        		<option>Plasma</option>
+				        		<option>Oxygen</option>
+				        		
+				        		
+				    		</select>
+				    	</div>
+
+				    	<div class="form-group ">
+				    		
+				      		<select id="inputPlasma" name="inputPlasma"class="form-control">
+				        		<option disabled selected hidden>Select In Case OF Plasma</option>
+				        		<option >A+</option>
+				        		<option>A-</option>
+				        		<option>B+</option>
+				        		<option>B-</option>
+				        		<option>O+</option>
+				        		<option>O-</option>
+				        		<option>AB+</option>
+				        		<option>AB-</option>
+				        		
+				        		
+				    		</select>
+				    	</div>
+		    
+	        			<div class="form-group">
+	          				<input type="text" class="form-control" placeholder="Name" name='name'/>
+	        			</div>
+	        			<div class="form-group">
+	          				<input type="text" class="form-control" placeholder="details/address/email" name="details" />
+	        			</div>
+	        			<div class="form-group">
+	          				<input type="text" class="form-control" placeholder="Mobile Number" name="mobile" />
+	        			</div>
+	        			<div class="form-group">
+	          				<input type="text" class="form-control" placeholder="City" name="city" />
+	        			</div>
+
+	        			<div class="form-group">
+	          				<input type="text" class="form-control" placeholder="Hospital In Case oF Bed" name="hospital" />
+	        			</div>
+	        			
+	        			
+	        			
+	          				
+	          
+	       		<div class="form-group">
+	          <div class="container">
+	            <div class="row">
+	            
+	              <div class="col"><button class="col-6 btn btn-primary btn-sm float-right">Submit</button></div>
+	            </div>
+	          </div>
+	        </div>  
+	       </div>
+
+
+	      </form>
+	    </div>
+	  </div>
+	</div>
+		</div>	
+
+{%endblock%}
